@@ -8,19 +8,19 @@ import 'swiper/css/parallax';
 
 const slides = [
   {
-    image: 'http://biotechnology-equipments.com/images/slider-01.jpg',
+    image: 'images/slider-01.jpg',
     title: 'Innovation Biotechnologique',
     subtitle: 'Précision Inégalée',
     overlay: 'linear-gradient(45deg, rgba(10, 26, 58, 0.85) 30%, rgba(10, 26, 58, 0.2) 100%)'
   },
   {
-    image: 'http://biotechnology-equipments.com/images/slider-02.jpg',
+    image: 'images/slider-02.jpg',
     title: 'Équipements de Laboratoire',
     subtitle: 'Haute Performance pour la Recherche',
     overlay: 'linear-gradient(45deg, rgba(16, 52, 94, 0.85) 30%, rgba(16, 52, 94, 0.2) 100%)'
   },
   {
-    image: 'http://biotechnology-equipments.com/images/slider-03.jpg',
+    image: 'images/slider-03.jpg',  
     title: 'Solutions Avancées',
     subtitle: 'Pour l\'Industrie Biotechnologique',
     overlay: 'linear-gradient(45deg, rgba(8, 32, 68, 0.85) 30%, rgba(8, 32, 68, 0.2) 100%)'
