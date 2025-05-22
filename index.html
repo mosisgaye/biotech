@@ -1,18 +1,63 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Preconnect pour les polices (Performance critique) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Favicon optimisé -->
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <title>BIOTECH Medical Equipment Website</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>BIOTECH - Équipements Médicaux de Pointe | Solutions Biotechnologiques</title>
+    <meta name="description" content="BIOTECH, leader en équipements médicaux et solutions biotechnologiques. Innovation, qualité et expertise au service de la santé au Sénégal.">
+    <meta name="keywords" content="biotech, équipements médicaux, biotechnologie, santé, Sénégal, laboratoire">
+    <meta name="author" content="BIOTECH">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="BIOTECH - Équipements Médicaux de Pointe">
+    <meta property="og:description" content="Solutions biotechnologiques innovantes pour l'industrie médicale">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://biotech.sn">
+    
+    <!-- Polices optimisées avec chargement asynchrone -->
+    <link 
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:wght@300;400&display=swap" 
+      rel="stylesheet" 
+      media="print" 
+      onload="this.media='all'"
+    >
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    </noscript>
+    
+    <!-- Preload pour les ressources critiques -->
+    <link rel="preload" href="/images/slider-01.jpg" as="image" type="image/jpeg">
+    
+    <!-- DNS Prefetch pour les domaines externes -->
+    <link rel="dns-prefetch" href="//images.pexels.com">
+    <link rel="dns-prefetch" href="//randomuser.me">
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Script de mesure de performance en développement -->
+    <script>
+      if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
+        window.addEventListener('load', () => {
+          const navigation = performance.getEntriesByType('navigation')[0];
+          console.log('⚡ Page Load Time:', Math.round(navigation.loadEventEnd - navigation.loadEventStart) + 'ms');
+        });
+      }
+    </script>
   </body>
 </html>

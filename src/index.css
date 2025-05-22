@@ -4,34 +4,199 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Vos styles Swiper originaux */
-.swiper-button-next,
-.swiper-button-prev {
-  color: #00CED1 !important;
-  background: rgba(255, 255, 255, 0.1);
-  width: 50px !important;
-  height: 50px !important;
-  border-radius: 50%;
-  backdrop-filter: blur(4px);
+/* ===== ANIMATIONS CSS PURES (Remplaçant framer-motion) ===== */
+
+/* Animations de base */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.swiper-button-next:after,
-.swiper-button-prev:after {
-  font-size: 20px !important;
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-  background: rgba(255, 255, 255, 0.2);
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-/* Vos styles de focus originaux */
-input:focus, textarea:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px theme('colors.cyan.300');
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-/* ===== AMÉLIORATIONS STYLE BREVO ===== */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(3deg);
+  }
+}
+
+@keyframes floatDelayed {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(15px) rotate(-2deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+/* Classes utilitaires pour les animations */
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatDelayed 10s ease-in-out infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+/* Délais d'animation */
+.animation-delay-100 { animation-delay: 0.1s; }
+.animation-delay-200 { animation-delay: 0.2s; }
+.animation-delay-300 { animation-delay: 0.3s; }
+.animation-delay-400 { animation-delay: 0.4s; }
+.animation-delay-500 { animation-delay: 0.5s; }
+.animation-delay-600 { animation-delay: 0.6s; }
+.animation-delay-700 { animation-delay: 0.7s; }
+.animation-delay-800 { animation-delay: 0.8s; }
+
+/* Animations hover optimisées */
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.hover-scale-sm {
+  transition: transform 0.2s ease;
+}
+
+.hover-scale-sm:hover {
+  transform: scale(1.02);
+}
+
+/* Animation marquee pour Partners */
+@keyframes marquee {
+  0% { 
+    transform: translateX(0); 
+  }
+  100% { 
+    transform: translateX(-50%); 
+  }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+  will-change: transform;
+}
+
+/* Responsive animations */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up,
+  .animate-slide-in-left,
+  .animate-slide-in-right,
+  .animate-scale-in,
+  .animate-float,
+  .animate-float-delayed,
+  .animate-marquee {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ===== STYLES ORIGINAUX OPTIMISÉS ===== */
 
 /* Configuration des polices pour Tailwind */
 .font-montserrat {
@@ -55,7 +220,7 @@ body, p, span, div {
   line-height: 1.6;
 }
 
-/* Boutons modernes avec votre couleur */
+/* Boutons modernes */
 .btn-primary {
   background: #00CED1;
   border-radius: 12px;
@@ -71,24 +236,13 @@ body, p, span, div {
   box-shadow: 0 4px 12px rgba(0, 206, 209, 0.2);
 }
 
-.btn-secondary {
-  background: transparent;
-  border: 2px solid #00CED1;
-  color: #00CED1;
-  border-radius: 12px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  padding: 10px 22px;
-  transition: all 0.2s ease-in-out;
+/* Focus states optimisés */
+input:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px theme('colors.cyan.300');
 }
 
-.btn-secondary:hover {
-  background: #00CED1;
-  color: white;
-  transform: translateY(-1px);
-}
-
-/* Cards et containers modernes */
+/* Cards modernes */
 .card {
   background: white;
   border-radius: 16px;
@@ -103,139 +257,23 @@ body, p, span, div {
   transform: translateY(-2px);
 }
 
-/* Espacement moderne */
-.section-padding {
-  padding: 80px 0;
+/* Optimisations performance */
+* {
+  box-sizing: border-box;
 }
 
-.container-modern {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
+img {
+  max-width: 100%;
+  height: auto;
 }
 
-/* Améliorations des inputs avec votre couleur */
-input, textarea, select {
-  font-family: 'Lato', sans-serif;
-  border-radius: 8px;
-  border: 1px solid #e5e5e5;
-  padding: 12px 16px;
-  transition: all 0.2s ease;
-  font-size: 16px;
+/* Will-change pour les éléments animés */
+.will-change-transform {
+  will-change: transform;
 }
 
-input:hover, textarea:hover, select:hover {
-  border-color: #00CED1;
-}
-
-/* Navigation moderne */
-.nav-link {
-  font-family: 'Lato', sans-serif;
-  font-weight: 400;
-  text-decoration: none;
-  color: #666;
-  transition: color 0.2s ease;
-  position: relative;
-}
-
-.nav-link:hover {
-  color: #00CED1;
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #00CED1;
-  transition: width 0.2s ease;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-
-/* Animations douces */
-.fade-in {
-  animation: fadeIn 0.6s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.scale-hover {
-  transition: transform 0.2s ease-in-out;
-}
-
-.scale-hover:hover {
-  transform: scale(1.05);
-}
-
-/* Headers hiérarchiques */
-.hero-title {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-}
-
-.section-title {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.2;
-  margin-bottom: 16px;
-}
-
-.subtitle {
-  font-family: 'Lato', sans-serif;
-  font-size: 1.25rem;
-  font-weight: 300;
-  line-height: 1.6;
-  color: #666;
-}
-
-/* Badges et tags modernes */
-.badge {
-  background: rgba(0, 206, 209, 0.1);
-  color: #00CED1;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-family: 'Lato', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  display: inline-block;
-}
-
-/* Grid responsive moderne */
-.grid-auto-fit {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 32px;
-}
-
-/* Shadows modernes */
-.shadow-soft {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-}
-
-.shadow-medium {
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
-
-.shadow-strong {
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+.will-change-opacity {
+  will-change: opacity;
 }
 
 /* Responsive improvements */
@@ -244,15 +282,13 @@ input:hover, textarea:hover, select:hover {
     font-size: 2.5rem;
   }
   
-  .section-padding {
-    padding: 60px 0;
-  }
-  
-  .container-modern {
-    padding: 0 16px;
-  }
-  
   .card {
     padding: 24px;
+  }
+  
+  /* Réduire les animations sur mobile */
+  .animate-float,
+  .animate-float-delayed {
+    animation-duration: 12s;
   }
 }
