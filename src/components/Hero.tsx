@@ -20,7 +20,7 @@ const slides = [
     overlay: 'linear-gradient(45deg, rgba(16, 52, 94, 0.85) 30%, rgba(16, 52, 94, 0.2) 100%)'
   },
   {
-    image: 'images/slider-03.jpg',  
+    image: 'images/slider-03.jpgjpg',  
     title: 'Solutions Avancées',
     subtitle: 'Pour l\'Industrie Biotechnologique',
     overlay: 'linear-gradient(45deg, rgba(8, 32, 68, 0.85) 30%, rgba(8, 32, 68, 0.2) 100%)'

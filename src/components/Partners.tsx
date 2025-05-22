@@ -2,16 +2,20 @@ import React from 'react';
 
 const Partners: React.FC = () => {
   const partners = [
-    { name: "Ministère de la Santé", logoUrl: "https://www.sante.gouv.sn/sites/default/files/block_image/logo%20sante.png" },
-    { name: "LumiraDx", logoUrl: "https://images.seeklogo.com/logo-png/45/1/lumiradx-logo-png_seeklogo-458545.png" },
-    { name: "Beckman Coulter", logoUrl: "https://media.beckmancoulter.com/-/media/diagnostics/corporate/logos/beckman-coulter-logo_498x150.png" },
-    { name: "COPAN", logoUrl: "https://www.copangroup.com/wp-content/themes/copan/images/logo-copan.svg" },
-    { name: "DiaPro", logoUrl: "http://biotechnology-equipments.com/imagelabo/partenaires/diapro.jpeg" },
-    { name: "Institut Pasteur", logoUrl: "http://biotechnology-equipments.com/imagelabo/partenaires/pasteur.png" },
-    { name: "Centre Hospitalier National", logoUrl: "http://biotechnology-equipments.com/imagelabo/partenaires/cgass.JPG" },
-    { name: "BIO 24", logoUrl: "https://labobio24.com/wp-content/uploads/2022/01/LOGO-BIO-24-BLANC.png" },
-    { name: "airinspace", logoUrl: "https://frenchhealthcare-association.fr/wp-content/uploads/2022/06/Logo_airinspace-2016_grand.png" },
-    { name: "Snibe Diagnostic", logoUrl: "http://biotechnology-equipments.com/imagelabo/partenaires/snibe.jpeg" },
+    { name: "Ministère de la Santé", logoUrl: "/images/logo.png" },
+    { name: "LumiraDx", logoUrl: "/images/lumiradx.png" },
+    { name: "Beckman Coulter", logoUrl: "/images/beckman.png" },
+    { name: "COPAN", logoUrl: "/images/logo-copan.svg" },
+    { name: "DiaPro", logoUrl: "/images/diapro.jpeg" },
+    { name: "Institut Pasteur", logoUrl: "/images/pasteur.png" },
+    { name: "Centre Hospitalier National", logoUrl: "/images/cgass.jpeg" },
+    { name: "BIO 24", logoUrl: "/images/24blanc.png" },
+    { name: "airinspace", logoUrl: "/images/airinspace.png" },
+    { name: "Snibe Diagnostic", logoUrl: "/images/snibe.jpeg" },
+    { name: "AHWA", logoUrl: "/images/ahwa.png" },
+    { name: "DISCA", logoUrl: "/images/disca.png" },
+    { name: "ISRA", logoUrl: "/images/isra.jpeg" },
+    { name: "DALAL", logoUrl: "/images/dalal.png" },
   ];
 
   // Dupliquer les logos pour l'effet infini
